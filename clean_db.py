@@ -2,14 +2,14 @@ import pandas as pd
 import mysql.connector
 
 # Step 1: Extract
-df = pd.read_excel("D:\\resume projects\\Goodreads-Books-Analysis\\dataset\\books.xlsx")
+df = pd.read_excel(f"D:/resume_projects/goodreads-etl-pipeline/dataset/books.xlsx")
 
-# Step 2: Try converting the date column (if it exists)
+# Step 2: Transform
 if 'publication_date' in df.columns:
     df['publication_date'] = pd.to_datetime(df['publication_date'], errors='coerce')
 
 # Save the cleaned data as a CSV
-df.to_csv("D:\\resume projects\\Goodreads-Books-Analysis\\dataset\\cleaned_books.csv", index=False)
+df.to_csv(f"D:/resume_projects/goodreads-etl-pipeline/dataset/cleaned_books.csv", index=False)
 
 print("✅ Done! Cleaned file saved.")
 
@@ -42,7 +42,8 @@ create table if not exists books (
 )
 """)
 
-# int may not work as the value may start at 0 and int will by default trim it
+# int may not work for isbn 
+# as the value may start at 0 and int will by default trim it
 
 # Insert data
 for _, row in df.iterrows():
@@ -74,7 +75,6 @@ for _, row in df.iterrows():
         row.get('publication_date').date(),
         row.get('publisher')
     ))
-
 
 conn.commit()
 cursor.close()
