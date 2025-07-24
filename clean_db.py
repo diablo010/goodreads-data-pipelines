@@ -16,9 +16,9 @@ print("✅ Done! Cleaned file saved.")
 # Step 3: Load
 conn = mysql.connector.connect(
     host = "localhost",
-    user = "root",
-    password = "192837",
-    database = "books_db"
+    user = "your_user",
+    password = "your_pass",
+    database = "your_db"
 )
 
 cursor = conn.cursor()
