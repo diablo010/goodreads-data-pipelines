@@ -2,14 +2,14 @@ import pandas as pd
 import mysql.connector
 
 # Step 1: Extract
-df = pd.read_excel(f"D:/resume_projects/goodreads-etl-pipeline/dataset/books.xlsx")
+df = pd.read_excel("system_path/goodreads-etl-pipeline/dataset/books.xlsx")
 
 # Step 2: Transform
 if 'publication_date' in df.columns:
     df['publication_date'] = pd.to_datetime(df['publication_date'], errors='coerce')
 
 # Save the cleaned data as a CSV
-df.to_csv(f"D:/resume_projects/goodreads-etl-pipeline/dataset/cleaned_books.csv", index=False)
+df.to_csv(f"system_path/goodreads-etl-pipeline/dataset/cleaned_books.csv", index=False)
 
 print("✅ Done! Cleaned file saved.")
 
