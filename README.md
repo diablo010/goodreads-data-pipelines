@@ -66,4 +66,4 @@ pip install -r requirements.txt
 
 A production-style version using Apache Airflow inside Docker to orchestrate the workflow.
 
-Refer [README.md](../airflow-version/README.md) from `airflow-version` folder.
+Refer [README.md](https://github.com/diablo010/goodreads-etl-pipeline/blob/main/airflow-version/README.md) from `airflow-version` folder.
