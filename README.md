@@ -1,27 +1,14 @@
 # 📚 Goodreads ETL Project
 
-A simple end-to-end **ETL pipeline** that extracts, cleans, and loads data from a Goodreads dataset into a MySQL database — followed by SQL queries to gain insights.
+This repository contains two versions of an end-to-end **ETL pipeline** that processes Goodreads book data into a MySQL database.
 
 ## 🧩 Project Overview
 
-- **📂 Dataset**: Goodreads Books Dataset
-- **⚙️ Tools**: Python, Pandas, MySQL, MySQL Workbench
-- **💡 Goal**: Load and explore book metadata like ratings, authors, and publication details
-
-## ⚙️ ETL Steps
-
-### 1. **Extract**
-- Load raw `books.xlsx` into a Pandas DataFrame
-
-### 2. **Transform**
-- Parse date columns (`publication_date`)
-- Handle missing values
-- Export cleaned data to `cleaned_books.csv`
-
-### 3. **Load**
-- Connect to MySQL using `mysql.connector`
-- Create a table `books`
-- Load each row from the DataFrame into MySQL
+- **📂 Dataset**: Goodreads Books Dataset (`books.xlsx` or `books.csv`)
+- **⚙️ Tools**:
+  - Python, Pandas
+  - MySQL, MySQL Workbench
+  - Apache Airflow (Docker)
 
 ## 🗃️ Database Schema
 
@@ -40,11 +27,43 @@ A simple end-to-end **ETL pipeline** that extracts, cleans, and loads data from 
 | publication_date     | date          |
 | publisher            | varchar(255)  |
 
-To run this project,
-- install requirements from `requirements.txt`
-- update in Load step of `clean_db.py`
-- run `clean_db.py` on terminal
+## 🔀 ETL Pipeline Versions
 
-**And you are good to go! 💪**
+### 🔸 Version 1: Manual ETL (No Automation)
+
+A simple script-based pipeline using Python and MySQL.
+
+#### ✅ Steps:
+1. **Extract**  
+   - Load `books.xlsx` into a Pandas DataFrame
+
+2. **Transform**  
+   - Clean and standardize the data  
+   - Parse date columns (publication_date)  
+   - Export cleaned data to `cleaned_books.csv`
+
+3. **Load**  
+   - Connect to MySQL using `mysql.connector`
+   - Create the `books` table (if not present)
+   - Load each row from the DataFrame into MySQL
+
+#### 🏃‍♀️ How to Run:
+- Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+- Update Connection Details (e.g., username, password) in `connect` step of `clean_db.py`
+
+- Run `clean_db.py` on terminal
     
-> Note: `<your_db>` should be present in MySQL Workbench
+> Note: <your_db> should be present in MySQL Workbench
+
+---
+
+### 🔹 Version 2: Automated ETL with Apache Airflow + Docker
+
+A production-style version using Apache Airflow inside Docker to orchestrate the workflow.
+
+Refer [README.md](../airflow-version/README.md) from `airflow-version` folder.
