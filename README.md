@@ -2,15 +2,15 @@
 
 This repository contains two versions of an end-to-end **ETL pipeline** that processes Goodreads book data into a MySQL database.
 
-## 🧩 Project Overview
+##  Project Overview
 
-- **📂 Dataset**: Goodreads Books Dataset (`books.xlsx` or `books.csv`)
-- **⚙️ Tools**:
+- **Dataset**: Goodreads Books Dataset (`books.xlsx` or `books.csv`)
+- **Tools**:
   - Python, Pandas
   - MySQL, MySQL Workbench
   - Apache Airflow (Docker)
 
-## 🗃️ Database Schema
+##  Database Schema
 
 | Column               | Data Type     |
 |----------------------|---------------|
@@ -33,7 +33,7 @@ This repository contains two versions of an end-to-end **ETL pipeline** that pro
 
 A simple script-based pipeline using Python and MySQL.
 
-#### ✅ Steps:
+#### Steps:
 1. **Extract**  
    - Load `books.xlsx` into a Pandas DataFrame
 
@@ -47,7 +47,7 @@ A simple script-based pipeline using Python and MySQL.
    - Create the `books` table (if not present)
    - Load each row from the DataFrame into MySQL
 
-#### 🏃‍♀️ How to Run:
+####  How to Run:
 - Install dependencies:
 
 ```bash
