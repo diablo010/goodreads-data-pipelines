@@ -2,7 +2,7 @@
 
 An end-to-end ETL pipeline built using **Apache Airflow (in Docker)** to extract, transform, and load Goodreads book data into a **MySQL database**. The DAG is written using **TaskFlow API** for better readability and modularity.
 
-## 🚀 Project Overview
+##  Project Overview
 
 This ETL pipeline performs the following steps:
 
@@ -10,26 +10,25 @@ This ETL pipeline performs the following steps:
 - **Transform**: Cleans and formats the data (e.g., converts dates, handles missing values).
 - **Load**: Inserts the processed data into a MySQL database (`your_db`) using `mysql-connector-python`.
 
-## 🧰 Tech Stack
+##  Tech Stack
 
 | Tool               | Purpose                        |
 |--------------------|--------------------------------|
 |   Docker Desktop   | Containerization environment   |
 |   Apache Airflow   | Workflow orchestration         |
-|   TaskFlow API     | DAG writing style in Airflow   |
 |    MySQL Workbench | Visualize and verify data load |
 
-## 📂 DAG Breakdown:
+##  DAG Breakdown:
 ```python
 extract() --> transform() --> load()
 ```
 
-## ✅ DAG Features
+## DAG Features
 - Written using `TaskFlow API (@task) decorators` for clean, modular logic.
 - Retry mechanism (`retries=5` , `retry_delay=5 minutes`) for fault tolerance.
 - Supports scheduling via `@daily` cron expression.
 
-## ⚙️ How to Run the Project
+##  How to Run
 
 #### 1. Install dependencies from `requirements.txt` 
 
