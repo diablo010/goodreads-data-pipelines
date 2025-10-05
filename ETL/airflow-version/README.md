@@ -1,8 +1,8 @@
-# 📚 Goodreads ETL with Apache Airflow
+# Goodreads Books ETL Pipeline with Apache Airflow
 
 An end-to-end ETL pipeline built using **Apache Airflow (in Docker)** to extract, transform, and load Goodreads book data into a **MySQL database**. The DAG is written using **TaskFlow API** for better readability and modularity.
 
-##  Project Overview
+##  Overview
 
 This ETL pipeline performs the following steps:
 
@@ -54,4 +54,4 @@ docker run --name mysql-container \
 #### 5. Trigger the DAG
 - Enable and run `goodreads_dag` from the Airflow UI
 
-> Note: Ensure that all files of this project folder are uploaded within the `dags/` folder of Dockerized Airflow container in your setup. And keep Docker Desktop running in background.
+> Note: Ensure that `airflow-version` folder is uploaded to the `dags/` folder of Dockerized Airflow container in your setup. And keep Docker Desktop running in background.

@@ -1,6 +1,9 @@
-# 📚 Goodreads ETL Project
+# 📚 Goodreads Data Project
 
-This repository contains two versions of an end-to-end **ETL pipeline** that processes Goodreads book data into a MySQL database.
+This repository contains multiple projects showcasing **data engineering workflows** and analysis using Goodreads book data.  
+<br/>
+It includes ETL pipelines, Pandas analysis, and SQL analysis to demonstrate end-to-end data handling, cleaning, transformation, and insights extraction.
+
 
 ##  Project Overview
 
@@ -27,43 +30,34 @@ This repository contains two versions of an end-to-end **ETL pipeline** that pro
 | publication_date     | date          |
 | publisher            | varchar(255)  |
 
-## 🔀 ETL Pipeline Versions
+## ETL Pipeline Versions
 
-### 🔸 Version 1: Manual ETL (No Automation)
+### 🔸 Version 1 : Manual ETL (No Automation)
 
 A simple script-based pipeline using Python and MySQL.
 
-#### Steps:
-1. **Extract**  
-   - Load `books.xlsx` into a Pandas DataFrame
-
-2. **Transform**  
-   - Clean and standardize the data  
-   - Parse date columns (publication_date)  
-   - Export cleaned data to `cleaned_books.csv`
-
-3. **Load**  
-   - Connect to MySQL using `mysql.connector`
-   - Create the `books` table (if not present)
-   - Load each row from the DataFrame into MySQL
-
-####  How to Run:
-- Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-- Update Connection Details (e.g., username, password) in `connect` step of `clean_db.py`
-
-- Run `clean_db.py` on terminal
-    
-> Note: <your_db> should be present in MySQL Workbench
+Refer [README.md](https://github.com/diablo010/goodreads-etl-pipeline/blob/main/ETL/manual-version/README.md) from `manual-version` folder.
 
 ---
 
-### 🔹 Version 2: Automated ETL with Apache Airflow + Docker
+### 🔹 Version 2 : Automated ETL with Apache Airflow + Docker
 
 A production-style version using Apache Airflow inside Docker to orchestrate the workflow.
 
-Refer [README.md](https://github.com/diablo010/goodreads-etl-pipeline/blob/main/airflow-version/README.md) from `airflow-version` folder.
+Refer [README.md](https://github.com/diablo010/goodreads-etl-pipeline/blob/main/ETL/airflow-version/README.md) from `airflow-version` folder.
+
+## Analysis
+
+### 🔸 1 : Pandas Analysis
+
+A Jupyter Notebook-based analysis using Python and Pandas for data cleaning, exploration, and visualization.
+
+Refer [README.md](https://github.com/diablo010/goodreads-etl-pipeline/blob/main/Analysis/pandas-analysis/README.md) from `pandas-analysis` folder.
+
+---
+
+### 🔹 2 : SQL Analysis
+
+A SQL-based analysis on the dataset to answer business questions, aggregations, and insights.
+
+Refer [README.md](https://github.com/diablo010/goodreads-etl-pipeline/blob/main/Analysis/sql-analysis/README.md) from `sql-analysis` folder.
